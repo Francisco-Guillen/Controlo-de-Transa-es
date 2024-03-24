@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<title>TP2</title>
+	 <!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	  
+	  <link rel="stylesheet" href="style/style.css"/>
+</head>
+<body>
+
+<header>
+<nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo"><h4 style="font-family:sans-serif;padding-left:50px; text-align:center">Encomendas</h4></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+		<li><a href="/encomendas" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i> Lista de Encomendas</a></li>
+      </ul>
+    </div>
+  </nav> 
+</header>
+
+<h4 style="font-family:sans-serif;padding-left:50px; text-align:center"> Encomenda</h4>
+<table class="container encomendaDetails"> 
+    <thead>
+        <tr> 
+            <th>ID Encomenda</th>
+            <th>ID Cliente</th>
+            <th> Nome </th>
+            <th> Morada </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="encomenda : ${encomenda}">
+        <td><span th:text="${encomenda.EncId}"></td>
+        <td><span th:text="${encomenda.ClienteId}"></span></a></td>
+        <td><span th:text="${encomenda.Nome}"></span></a></td>
+        <td><span th:text="${encomenda.Morada}"></span></a></td>
+        </tr>
+    </tbody>
+</table>
+
+<br> </br>
+
+<h4 style="font-family:sans-serif;padding-left:50px; text-align:center"> Detalhes Encomenda</h4>
+
+   <table class="container"> 
+    <thead>
+        <tr> 
+            <th>ID Encomenda</th>
+            <th>ID Produto</th>
+            <th> Nome  </th>
+            <th> Preco </th>
+            <th> Quantidade </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="encLinha : ${encLinhas}">
+        <td><span th:text="${encLinha.EncId}"></span></td>
+        <td><span th:text="${encLinha.ProdutoId}"></span></a></td>
+        <td><span th:text="${encLinha.Designacao}"></span></a></td>
+        <td><span th:text="${encLinha.Preco}"></span></a></td>
+        <td><span th:text="${encLinha.Qtd}"></span></a></td>
+        </tr>
+    </tbody>
+</table>
+<br> </br>
+
+<form class="container" method="post">
+    Morada a Alterar: <input type="text" value="" name="morada" id ="morada"/>	
+    Id Produto: <input type="text" value="" name="idproduto" id ="idproduto"/>	
+    Nova Quantidade: <input type="text" value="" name="qtd" id ="qtd"/>	
+    <div class="row">
+        <div class="input-field col s6">
+            <button class = "waves-effect waves-light btn" type="submit">Guardar</button>
+            <button class = "waves-effect waves-light btn" onClick="window.location.reload()">Refresh</button>
+        </div>
+    </div>
+</form>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+
+</body>
+
+
+</html>

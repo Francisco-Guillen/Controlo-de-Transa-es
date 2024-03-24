@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<title>TP2</title>
+	 <!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	  <link rel="stylesheet" href="style/style.css"/>
+</head>
+<body>
+
+<header>
+<nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo"><h4 style="font-family:sans-serif;padding-left:50px; text-align:center">Log Operations</h4></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down" padding-left:50px>
+      </ul>
+    </div>
+  </nav> 
+</header>
+
+	 <table class="container"> 
+		<thead>
+			<tr> 
+				<th>NumReg</th>
+				<th>EventType</th>
+				<th> Objecto </th>
+                <th> Valor </th>
+                <th> Referencia </th>
+                <th> UserID </th>
+                <th> TerminalD </th>
+                <th> TerminalName </th>
+                <th> DCriacao </th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="logOperations : ${logOperations}">
+			<td><span th:text="${logOperations.NumReg}"></td>
+			<td><span th:text="${logOperations.EventType}"></span></a></td>
+            <td><span th:text="${logOperations.Objeto}"></span></a></td>
+            <td><span th:text="${logOperations.Valor}"></span></a></td>
+            <td><span th:text="${logOperations.Referencia}"></td>
+            <td><span th:text="${logOperations.UserID}"></span></a></td>
+            <td><span th:text="${logOperations.TerminalD}"></span></a></td>
+            <td><span th:text="${logOperations.TerminalName}"></span></a></td>
+            <td><span th:text="${logOperations.DCriacao}"></span></a></td>
+			</tr>
+		</tbody>
+	</table>
+
+		
+	</div>
+
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+
+</body>
+
+
+</html>
